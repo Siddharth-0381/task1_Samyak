@@ -3,13 +3,13 @@ import { getDatabase } from "firebase/database";
 
 function startFirebase(){
 const firebaseConfig = {
-    apiKey: "AIzaSyAKQH2XMU6SNPy-0BcvjqDbPNPbiZZUHMQ",
-    authDomain: "fir-react-4e241.firebaseapp.com",
-    databaseURL: "https://fir-react-4e241-default-rtdb.firebaseio.com",
-    projectId: "fir-react-4e241",
-    storageBucket: "fir-react-4e241.appspot.com",
-    messagingSenderId: "499886441331",
-    appId: "1:499886441331:web:ede80dc3d2193667eafb06"
+    apiKey: "AIzaSyA2oreemcnQwHgdEOxF_CWE3bsEvstQJss",
+    authDomain: "forms-26251.firebaseapp.com",
+    databaseURL: "https://forms-26251-default-rtdb.firebaseio.com",
+    projectId: "forms-26251",
+    storageBucket: "forms-26251.appspot.com",
+    messagingSenderId: "444284315706",
+    appId: "1:444284315706:web:3fb78eb45c51f88142ed03"
   };
   
   // Initialize Firebase

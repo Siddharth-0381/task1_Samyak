@@ -28,45 +28,58 @@ export class Crud extends React.Component{
     render(){
         return(
             <>
-                <label>Enter Username</label>
-                <input type='text' id='userbox' value={this.state.username}
-                onChange={e =>{this.setState({username: e.target.value});}}></input>
-                <br/><br/>
+            <div className="container-fluid">
+                <div className="container card mt-2">
+                    <h1 className="text-center text-black heading"><u>Registration Form</u></h1>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <label><b>Username : </b></label>
+                    <input type='text' id='userbox' value={this.state.username}
+                    onChange={e =>{this.setState({username: e.target.value});}} required></input>
+                    <br/><br/>
 
-                <label>Enter Fullname</label>
-                <input type='text' id='namebox' value={this.state.fullname}
-                onChange={e =>{this.setState({fullname: e.target.value});}}></input>
-                <br/><br/>
+                    <label><b>Fullname : </b></label>
+                    <input type='text' id='namebox' value={this.state.fullname}
+                    onChange={e =>{this.setState({fullname: e.target.value});}} required></input>
+                    <br/><br/>
 
-                <label>Enter Phonenumber</label>
-                <input type='number' id='phonebox' value={this.state.phonenumber}
-                onChange={e =>{this.setState({phonenumber: e.target.value});}}></input>
-                <br/><br/>
+                    <label><b>Phonenumber : </b></label>
+                    <input type='number' id='phonebox' value={this.state.phonenumber}
+                    onChange={e =>{this.setState({phonenumber: e.target.value});}} required></input>
+                    <br/><br/>
 
-                <label>Enter dob</label>
-                <input type='date' id='datebox' value={this.state.dob}
-                onChange={e =>{this.setState({dob: e.target.value});}}></input>
-                <br/><br/>
+                    <label><b>Date of Birth : </b></label>
+                    <input type='date' id='datebox' value={this.state.dob}
+                    onChange={e =>{this.setState({dob: e.target.value});}} required></input>
+                    <br/><br/>
 
-                <label>Enter city</label>
-                <input type='text' id='citybox' value={this.state.city}
-                onChange={e =>{this.setState({city: e.target.value});}}></input>
-                <br/><br/>
+                    <label><b>City : </b></label>
+                    <input type='text' id='citybox' value={this.state.city}
+                    onChange={e =>{this.setState({city: e.target.value});}} required></input>
+                    <br/><br/>
 
-                <label>Enter state</label>
-                <input type='text' id='statebox' value={this.state.statee}
-                onChange={e =>{this.setState({statee: e.target.value});}}></input>
-                <br/><br/>
+                    <label><b>State :</b> </label>
+                    <input type='text' id='statebox' value={this.state.statee}
+                    onChange={e =>{this.setState({statee: e.target.value});}} required></input>
+                    <br/><br/>
 
-                <label>Enter pincode</label>
-                <input type='number' id='pinbox' value={this.state.pincode}
-                onChange={e =>{this.setState({pincode: e.target.value});}}></input>
-                <br/><br/>
-
-                <button id="addBtn" onClick={this.interface}>Add Data</button>
-                <button id="updateBtn" onClick={this.interface}>Update Data</button>
-                <button id="deleteBtn" onClick={this.interface}>Delete Data</button>
-                <button id="selectBtn" onClick={this.interface}>Get Data from DB</button>
+                    <label><b> Pincode : </b></label>
+                    <input type='number' id='pinbox' value={this.state.pincode}
+                    onChange={e =>{this.setState({pincode: e.target.value});}} required></input>
+                    <br/><br/>
+                    <div>
+                        <center>
+                            <button className="btn btn-primary m-2" id="addBtn" onClick={this.interface}>Add Data</button>
+                            <button className="btn btn-primary m-2" id="updateBtn" onClick={this.interface}>Update Data</button>
+                            <button className="btn btn-primary m-2" id="deleteBtn" onClick={this.interface}>Delete Data</button>
+                            <button className="btn btn-primary m-2" id="selectBtn" onClick={this.interface}>Get Data from DB</button>
+                        </center>
+                    </div>
+                </div>
+            </div>
 
             </>
         )
@@ -75,17 +88,17 @@ export class Crud extends React.Component{
     interface(event){
         const id=event.target.id;
 
-        if(id=='addBtn'){
+        if(id==='addBtn'){
             this.addData();
         }
 
-        if(id=='updateBtn'){
+        if(id==='updateBtn'){
             this.updateData();
         }
-        if(id=='deleteBtn'){
+        if(id==='deleteBtn'){
             this.deleteData();
         }
-        if(id=='selectBtn'){
+        if(id==='selectBtn'){
             this.selectData();
         }
     }
@@ -98,7 +111,7 @@ export class Crud extends React.Component{
             dob: this.state.dob,
             city: this.state.city,
             statee: this.state.statee,
-            pin: this.state.pincode
+            pincode: this.state.pincode
         }
     }
     addData(){
@@ -112,9 +125,9 @@ export class Crud extends React.Component{
             dateofbirth:data.dob,
             city:data.city,
             statee:data.statee,
-            pin:data.pin
+            pincode:data.pincode
         })
-        .then(()=> {alert('data added successfully!')})
+        .then(()=> {alert('Data added successfully!')})
         .catch((error)=>{alert(error)});
     }
 
@@ -130,9 +143,9 @@ export class Crud extends React.Component{
             dateofbirth:data.dob,
             city:data.city,
             statee:data.statee,
-            pin:data.pin
+            pincode:data.pincode
         })
-        .then(()=> {alert('data updated successfully!')})
+        .then(()=> {alert('Data updated successfully!')})
         .catch((error)=>{alert(error)});
     }
 
@@ -142,7 +155,7 @@ export class Crud extends React.Component{
         const username=this.getAllInputs().username;
 
         remove(ref(db, 'Customer/'+username))
-        .then(()=> {alert('data deleted successfully!')})
+        .then(()=> {alert('Data deleted successfully!')})
         .catch((error)=>{alert(error)});
     }
 
@@ -163,7 +176,7 @@ export class Crud extends React.Component{
             })
         }
     else{
-        alert("no data found!");
+        alert("No data found!");
     }
 })
 .catch((error)=>{alert(error)});  
